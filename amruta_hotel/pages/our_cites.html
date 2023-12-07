@@ -1,0 +1,245 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="/vendors/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/vendors/css/grid.css" />
+    <link rel="stylesheet" type="text/css" href="/resources/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/resources/css/queries.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+    />
+    <title>Amruta's Dine</title>
+  </head>
+  <style>
+  .logo-container {
+  display: flex;
+  align-items: center; 
+    }
+
+  .your-name {
+    margin-left: -15px; 
+    font-style: italic; 
+    background-color: orange; 
+    color: white; 
+    padding: 5px 10px; 
+    border-radius: 5px; 
+  }
+  .meals-showcase .meal-item {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Add spacing between menu items */
+.meals-showcase .meal-item:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+
+    /* Style for the billing section */
+    .billing-section {
+        text-align: center;
+        background-color: #f5f5f5;
+        padding: 20px;
+    }
+
+    #order-list {
+        list-style: none;
+        padding: 0;
+    }
+
+    #order-list li {
+        margin: 5px 0;
+    }
+
+    #total-amount {
+        font-size: 24px;
+        margin-top: 10px;
+    }
+  </style>
+  <body>
+    <!------------------------------------------------------------------->
+    <!------------------This is the Header Section--------------------->
+    <!------------------------------------------------------------------->
+
+    <header>
+      <nav>
+        <div class="row">
+          <div class="logo-container">
+            <img src="/resources/img/hotel_log.png" alt="logo" class="logo" />
+            <div class="your-name">Amruta's Dine</div> <!-- Use a <div> for your name -->
+          </div>
+          
+          <img src="/resources/img/hotel_log.png" alt="logo" class="logo-sticky" />
+          <ul class="main-nav js--main-nav">
+            
+            <!-- <li><a href="#works">How it works</a></li> -->
+            <li><a href="menus.html">Menus</a></li>
+            <li><a href="our_cites.html">Our cities</a></li>
+            <li><a href="feedback.html">Customer FeedBack</a></li>
+            <li><a href="/index.html">Logout</a></li>
+            <!-- <li><a href="#signup">Sign up</a></li> -->
+          </ul>
+          <a class="mobile-nav js--mobile-nav">
+            <ion-icon class="mob" name="menu-outline"></ion-icon>
+          </a>
+        </div>
+        
+      </nav>
+
+      <div class="hero-text-box">
+        <h1 class="maintext">
+         Welcome to Our Cities <br />
+          Please GO Ahead.
+        </h1>
+      
+      </div>
+    </header>
+
+
+
+    <section class="section-cities" id="cities">
+        <div class="row">
+          <h2>We're available in these area's</h2>
+        </div>
+        <div class="row wp--3">
+          <div class="col span-1-of-4 box">
+            <img src="/resources/img/Mumbai.jpg" alt="Mumbai" />
+            <h3>Mumbai</h3>
+            <div class="cities-feature">
+              <ion-icon class="icon-small" name="person-outline"></ion-icon>
+              1600+ happy eaters
+            </div>
+            <div class="cities-feature">
+              <ion-icon class="icon-small" name="star-sharp"></ion-icon>
+              60+ top chefs
+            </div>
+            <div class="cities-feature">
+              <ion-icon class="icon-small" name="logo-facebook"></ion-icon>
+              <a href="#">Dine Mumbai</a>
+            </div>
+          </div>
+  
+          <div class="col span-1-of-4 box">
+            <img src="/resources/img/Pune.jpg" alt="Dhaka University" />
+            <h3>Pune</h3>
+            <div class="cities-feature">
+              <ion-icon class="icon-small" name="person-outline"></ion-icon>
+              4700+ happy eaters
+            </div>
+            <div class="cities-feature">
+              <ion-icon class="icon-small" name="star-sharp"></ion-icon>
+              160+ top chefs
+            </div>
+            <div class="cities-feature">
+              <ion-icon class="icon-small" name="logo-facebook"></ion-icon>
+              <a href="#">Dine Pune</a>
+            </div>
+          </div>
+  
+          <div class="col span-1-of-4 box">
+            <img src="/resources/img/Satara.jpg" alt="Dhaka University" />
+            <h3>Satara</h3>
+            <div class="cities-feature">
+              <ion-icon class="icon-small" name="person-outline"></ion-icon>
+              6000+ happy eaters
+            </div>
+            <div class="cities-feature">
+              <ion-icon class="icon-small" name="star-sharp"></ion-icon>
+              80+ top chefs
+            </div>
+            <div class="cities-feature">
+              <ion-icon class="icon-small" name="logo-facebook"></ion-icon>
+              <a href="#">Dine Satara</a>
+            </div>
+          </div>
+  
+          <div class="col span-1-of-4 box">
+            <img src="/resources/img/Karad.jpg" alt="Dhaka University" />
+            <h3>Karad</h3>
+            <div class="cities-feature">
+              <ion-icon class="icon-small" name="person-outline"></ion-icon>
+              1900+ happy eaters
+            </div>
+            <div class="cities-feature">
+              <ion-icon class="icon-small" name="star-sharp"></ion-icon>
+              90+ top chefs
+            </div>
+            <div class="cities-feature">
+              <ion-icon class="icon-small" name="logo-facebook"></ion-icon>
+              <a href="#">Dine Karad</a>
+            </div>
+          </div>
+        </div>
+      </section>
+   
+    <!------------------------------------------------------------------->
+    <!------------------This is the Footer Section----------------------->
+    <!------------------------------------------------------------------->
+
+    <footer>
+      <div class="row">
+        <div class="col span-1-of-2">
+          <ul class="footer-nav">
+            <li><a href="#"> About us</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Ios App</a></li>
+            <li><a href="#">Android app</a></li>
+          </ul>
+        </div>
+        <div class="col span-1-of-2">
+          <ul class="social-links">
+            <li>
+              <a href="https://www.facebook.com/"
+                ><ion-icon class="facebook" name="logo-facebook"></ion-icon
+              ></a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/accounts/login/"
+                ><ion-icon class="instagram" name="logo-instagram"></ion-icon
+              ></a>
+            </li>
+            <li>
+              <a href="https://twitter.com/login?lang=en"
+                ><ion-icon class="twitter" name="logo-twitter"></ion-icon
+              ></a>
+            </li>
+            <li>
+              <a href="https://www.google.com/"
+                ><ion-icon class="googleplus" name="logo-google"></ion-icon
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row">
+        <p>
+          Copyright &copy; by <strong>Amruta Jagadale.</strong> 
+        </p>
+      </div>
+    </footer>
+
+  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+    <script src="/vendors/js/jquery.waypoints.min.js"></script>
+    <script src="/resources/js/script.js"></script>
+  </body>
+</html>

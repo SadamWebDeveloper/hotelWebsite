@@ -1,0 +1,552 @@
+
+
+    <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="/vendors/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/vendors/css/grid.css" />
+    <link rel="stylesheet" type="text/css" href="/resources/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/resources/css/queries.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+    />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+<script src="/vendors/js/jquery.waypoints.min.js"></script>
+<script src="/resources/js/script.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+
+
+    <title>Amruta's Dine</title>
+  </head>
+  <style>
+  .logo-container {
+  display: flex;
+  align-items: center; 
+    }
+
+  .your-name {
+    margin-left: -15px; 
+    font-style: italic; 
+    background-color: orange; 
+    color: white; 
+    padding: 5px 10px; 
+    border-radius: 5px; 
+  }
+  .meals-showcase .meal-item {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Add spacing between menu items */
+.meals-showcase .meal-item:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+
+    /* Style for the billing section */
+    .billing-section {
+        text-align: center;
+        background-color: #f5f5f5;
+        padding: 20px;
+    }
+
+    #order-list {
+        list-style: none;
+        padding: 0;
+    }
+
+    #order-list li {
+        margin: 5px 0;
+    }
+
+    #order-table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+#order-table th, #order-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+#order-table th {
+    background-color: #f2f2f2;
+}
+
+#order-table-body {
+    text-align: center;
+}
+
+#total-amount {
+    font-size: 24px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  width: 50%;
+  max-width: 400px; /* Set a maximum width if needed */
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.modal-content {
+  width: 100%;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Add a background overlay */
+.modal:before {
+  content: "";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(239 184 184 / 40%);
+  z-index: -1;
+}
+  </style>
+  <body>
+    <!------------------------------------------------------------------->
+    <!------------------This is the Header Section--------------------->
+    <!------------------------------------------------------------------->
+
+    <header>
+      <nav>
+        <div class="row">
+          <div class="logo-container">
+            <img src="/resources/img/hotel_log.png" alt="logo" class="logo" />
+            <div class="your-name">Amruta's Dine</div> <!-- Use a <div> for your name -->
+          </div>
+          
+          <img src="/resources/img/hotel_log.png" alt="logo" class="logo-sticky" />
+          <ul class="main-nav js--main-nav">
+            
+            <!-- <li><a href="#works">How it works</a></li> -->
+            <li><a href="menus.html">Menus</a></li>
+            <li><a href="our_cites.html">Our cities</a></li>
+            <li><a href="feedback.html">Customer FeedBack</a></li>
+            <li><a href="/index.html">Logout</a></li>
+            <!-- <li><a href="#signup">Sign up</a></li> -->
+          </ul>
+          <a class="mobile-nav js--mobile-nav">
+            <ion-icon class="mob" name="menu-outline"></ion-icon>
+          </a>
+        </div>
+        
+      </nav>
+
+      <div class="hero-text-box">
+        <h1 class="maintext">
+         Welcome to Our Menus Section <br />
+          Please GO Ahead.
+        </h1>
+      
+      </div>
+    </header>
+
+
+          <!-- Menus content goes here -->
+    <section class="section-meals">
+        <ul class="meals-showcase clearfix">
+            <li class="meal-item">
+                <figure class="meal-photo">
+                    <img src="/resources/img/Vada Pav.jpg" alt="Vada pav" />
+                </figure>
+                <div class="meal-details">
+                    <h3 class="meal-name">Vada Pav</h3>
+                    <p class="meal-price">RS 20</p>
+                    <a href="#" class="btn btn-full" onclick="addToOrder('Vada pav', 20.00)">Order Now</a>
+                  </div>
+                </div>
+            </li>
+            <li class="meal-item">
+                <figure class="meal-photo">
+                    <img src="/resources/img/Masala Dosa.jpg" alt="Masala Dosa" />
+                </figure>
+                <div class="meal-details">
+                    <h3 class="meal-name">Masala Dosa</h3>
+                    <p class="meal-price">RS 100</p>
+                    <a href="#" class="btn btn-full" onclick="addToOrder('Masala Dosa', 100.00)">Order Now</a>
+                </div>
+                </div>
+            </li>
+            <li class="meal-item">
+                <figure class="meal-photo">
+                    <img src="/resources/img/Onion Uttapam.jpg" alt="Onion Uttapam" />
+                </figure>
+                <div class="meal-details">
+                    <h3 class="meal-name">Onion Uttapam</h3>
+                    <p class="meal-price">RS 80</p>
+                    <a href="#" class="btn btn-full" onclick="addToOrder('Onion Uttapam', 80.00)">Order Now</a>
+                  </div>
+                </div>
+            </li>
+            <li class="meal-item">
+                <figure class="meal-photo">
+                    <img src="/resources/img/Veg Pizza.jpg" alt="Veg Pizza" />
+                </figure>
+                <div class="meal-details">
+                    <h3 class="meal-name">Veg Pizza</h3>
+                    <p class="meal-price">RS 250</p>
+                    <a href="#" class="btn btn-full" onclick="addToOrder('Veg Pizza', 250.00)">Order Now</a>
+                </div>
+                </div>
+            </li>
+            <li class="meal-item">
+                <figure class="meal-photo">
+                    <img src="/resources/img/Veg Burger.jpg" alt="Veg Burger" />
+                </figure>
+                <div class="meal-details">
+                    <h3 class="meal-name">Veg Burger</h3>
+                    <p class="meal-price">RS 100</p>
+                    <a href="#" class="btn btn-full" onclick="addToOrder('Veg Burger', 100.00)">Order Now</a>
+                  </div>
+                </div>
+            </li>
+            <li class="meal-item">
+                <figure class="meal-photo">
+                    <img src="/resources/img/Pav Bhaji.png" alt="Pav Bhaji" />
+                </figure>
+                <div class="meal-details">
+                    <h3 class="meal-name">Pav Bhaji</h3>
+                    <p class="meal-price">RS 110</p>
+                    <a href="#" class="btn btn-full" onclick="addToOrder('Pav Bhaji', 110.00)">Order Now</a>
+                  </div>
+                </div>
+            </li>
+            <li class="meal-item">
+                <figure class="meal-photo">
+                    <img src="/resources/img/Misal Pav.jpg" alt="Misal Pav" />
+                </figure>
+                <div class="meal-details">
+                    <h3 class="meal-name">Misal Pav</h3>
+                    <p class="meal-price">RS 80</p>
+                    <a href="#" class="btn btn-full" onclick="addToOrder('Misal Pav', 80)">Order Now</a>
+                  </div>
+                </div>
+            </li>
+            <li class="meal-item">
+                <figure class="meal-photo">
+                    <img src="/resources/img/Veg Sandwich.png" alt="Veg Sandwich" />
+                </figure>
+                <div class="meal-details">
+                    <h3 class="meal-name">Veg Sandwich</h3>
+                    <p class="meal-price">RS 80</p>
+                    <a href="#" class="btn btn-full" onclick="addToOrder('Veg Sandwich', 80.00)">Order Now</a>
+                  </div>
+                </div>
+            </li>
+
+            <li class="meal-item">
+              <figure class="meal-photo">
+                  <img src="/resources/img/Idli Chatni.jpg" alt="Idli Chatni" />
+              </figure>
+              <div class="meal-details">
+                  <h3 class="meal-name">Idli Chatni</h3>
+                  <p class="meal-price">RS 60</p>
+                  <a href="#" class="btn btn-full" onclick="addToOrder('Idli Chatni', 60.00)">Order Now</a>
+                </div>
+              </div>
+          </li>
+
+          <li class="meal-item">
+            <figure class="meal-photo">
+                <img src="/resources/img/Dhokla.jpg" alt="Dhokla" />
+            </figure>
+            <div class="meal-details">
+                <h3 class="meal-name">Dhokla</h3>
+                <p class="meal-price">RS 60</p>
+                <a href="#" class="btn btn-full" onclick="addToOrder('Dhokla', 60.00)">Order Now</a>
+              </div>
+            </div>
+        </li>
+
+        <li class="meal-item">
+          <figure class="meal-photo">
+              <img src="/resources/img/Paneer Tikka Dry.jpg" alt="Paneer Tikka Dry" />
+          </figure>
+          <div class="meal-details">
+              <h3 class="meal-name">Paneer Tikka Dry</h3>
+              <p class="meal-price">RS 120</p>
+              <a href="#" class="btn btn-full" onclick="addToOrder('Paneer Tikka Dry', 120.00)">Order Now</a>
+            </div>
+          </div>
+      </li>
+
+      <li class="meal-item">
+        <figure class="meal-photo">
+            <img src="/resources/img/Hara Bhara Kabab.png" alt="Hara Bhara Kabab" />
+        </figure>
+        <div class="meal-details">
+            <h3 class="meal-name">Hara Bhara Kabab</h3>
+            <p class="meal-price">RS 150</p>
+            <a href="#" class="btn btn-full" onclick="addToOrder('Hara Bhara Kabab', 150.00)">Order Now</a>
+          </div>
+        </div>
+    </li>
+
+            
+            <!-- Repeat this structure for each menu item -->
+        </ul>
+        <section class="billing-section" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif !important;">
+          <div>
+            <h2>Bill Section</h2>
+            <div class="row">
+              <div class="col-6" style="display: flex; flex-direction: column; align-items: flex-start;">
+                <p>Hotel Name: Amruta Dine</p>
+                <p>Address: 234 xyz street xyz nagar </p>
+                <p>Main Pune 89090009</p>
+                <p>GST No: 12345678901234556</p>
+              </div>
+              <div class="col-6" style="display: flex; flex-direction: column; align-items: flex-end;">
+                <p>Date: 23-09-2023</p>
+                <p>S.NO: 1</p>
+                <!-- Other details on the right side -->
+              </div>
+            </div>
+          </div>
+          <table id="order-table">
+            <thead>
+              <tr>
+                <th>Dish Name</th>
+                <th>Quantity</th>
+                <th>Price (RS)</th>
+                <th>CGST 2.5%</th>
+                <th>SGST 2.5%</th>
+                <th id="include-tax-cell"><span>Include Tax</span> </th>
+                
+              </tr>
+            </thead>
+            <tbody id="order-table-body"></tbody>
+          </table>
+          <div id="total-amount">
+            <span id="total-amount-value"></span>
+          </div>
+          <a href="#" class="btn btn-full" id="ToPay" style="background-color: #22a7e6 !important; border: none !important; display: none ;"> To Pay</a>
+
+          <a href="#" class="btn btn-full" id="reset" onclick="Reset()" style="background-color: rgb(186 216 224) !important; border: none !important; display: none ; margin-top: 15px;"> Reset </a>
+        </section>
+
+
+        <!-- model pop up -->
+        <div id="myModal" class="modal" style="display: none;">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Enter Card Details</h2>
+            <form id="cardDetailsForm">
+              <label for="cardNumber">Card Number:</label>
+              <input type="text" id="cardNumber" name="cardNumber" required>
+        
+              <label for="expiryDate">Expiry Date:</label>
+              <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YYYY" required>
+        
+              <label for="cvv">CVV:</label>
+              <input type="text" id="cvv" name="cvv" required>
+        
+              <button type="button" onclick="submitPayment()" style="    border-radius: 7px;
+              padding: revert;
+              margin-top: 20px; background-color: #e67e22;
+    color: white;">Submit Payment</button>
+            </form>
+          </div>
+        </div>
+        
+        
+        
+    <!------------------------------------------------------------------->
+    <!------------------This is the Footer Section----------------------->
+    <!------------------------------------------------------------------->
+
+    <footer>
+      <div class="row">
+        <div class="col span-1-of-2">
+          <ul class="footer-nav">
+            <li><a href="#"> About us</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Ios App</a></li>
+            <li><a href="#">Android app</a></li>
+          </ul>
+        </div>
+        <div class="col span-1-of-2">
+          <ul class="social-links">
+            <li>
+              <a href="https://www.facebook.com/"
+                ><ion-icon class="facebook" name="logo-facebook"></ion-icon
+              ></a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/accounts/login/"
+                ><ion-icon class="instagram" name="logo-instagram"></ion-icon
+              ></a>
+            </li>
+            <li>
+              <a href="https://twitter.com/login?lang=en"
+                ><ion-icon class="twitter" name="logo-twitter"></ion-icon
+              ></a>
+            </li>
+            <li>
+              <a href="https://www.google.com/"
+                ><ion-icon class="googleplus" name="logo-google"></ion-icon
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row">
+        <p>
+          Copyright &copy; by <strong>Amruta Jagadale.</strong> 
+        </p>
+      </div>
+    </footer>
+    <script>
+
+ 
+      let order = [];
+      let totalAmount = 0;
+    
+      function addToOrder(dishName, price) {
+        // Calculate tax amount (5%)
+        const taxRate = 0.05;
+        const taxAmount = price * taxRate;
+    
+        // Check if the dish is already in the order
+        const existingItem = order.find(item => item.name === dishName);
+    
+        if (existingItem) {
+          // If yes, increment the quantity
+          existingItem.quantity += 1;
+        } else {
+          // If no, add a new item to the order with tax details
+          order.push({ name: dishName, price: price, quantity: 1, taxAmount: taxAmount });
+        }
+    
+        totalAmount = calculateTotalAmount();
+        updateOrderList();
+      }
+    
+    function calculateTotalAmount() {
+    let total = 0;
+    order.forEach(item => {
+        total += (item.price + item.taxAmount) * item.quantity;
+    });
+    return total;
+}
+
+function updateOrderList() {
+    const orderTableBody = document.getElementById("order-table-body");
+    const totalAmountValue = document.getElementById("total-amount-value");
+    const includeTaxCell = document.getElementById("include-tax-cell");
+    orderTableBody.innerHTML = ""; // Clear the table body
+
+    order.forEach(item => {
+      const row = orderTableBody.insertRow();
+      const cell1 = row.insertCell(0);
+      const cell2 = row.insertCell(1);
+      const cell3 = row.insertCell(2);
+      const cell4 = row.insertCell(3);
+      const cell5 = row.insertCell(4);
+
+      const totalWithTax = (item.price + item.taxAmount) * item.quantity;
+
+      cell1.textContent = item.name;
+      cell2.textContent = item.quantity;
+      cell3.textContent = `RS${item.price.toFixed(2)}`;
+      cell4.textContent = `CGST ${(item.taxAmount / 2).toFixed(2)}`;
+      cell5.textContent = `SGST ${(item.taxAmount / 2).toFixed(2)}`;
+
+      // Display total including tax in a new cell
+      const cell6 = row.insertCell(5);
+      cell6.textContent = `RS${totalWithTax.toFixed(2)}`;
+    });
+
+    totalAmount = calculateTotalAmount();
+    totalAmountValue.textContent = `Bill Amount: RS${totalAmount.toFixed(2)}`;
+    $("#ToPay").css("display", "block");
+    $("#reset").css("display", "block");
+
+  }
+  function Reset(){
+    location.reload();
+  }
+  function submitPayment() {
+    toastr.success("Payment submitted successfully!");
+          // You can also close the modal here if needed
+          $(".modal").css("display", "none");
+          setTimeout(function () {
+                location.reload();
+                 }, 5000);
+        } 
+
+    </script>
+    <script>
+
+      $(document).ready(function () {
+          // Your existing jQuery code here
+          $("#ToPay").click(function () {
+            
+              $(".modal").css("display", "block");
+
+
+          });
+      
+        // When the user clicks on the close button or outside the modal, close it
+        $(".close").click(function () {
+          $(".modal").css("display", "none");
+        });
+      
+        $(window).click(function (event) {
+          if (event.target.className === "modal") {
+            $(".modal").css("display", "none");
+          }
+        });
+      
+     
+      });
+      
+      
+          </script>
+    
+  
+  </body>
+</html>

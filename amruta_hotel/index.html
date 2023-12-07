@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Amruta'''s Dine</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="icon" href="/resources/img/hotel_log.png">
+  <link
+  href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,300&display=swap"
+  rel="stylesheet"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+/>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+<script src="/vendors/js/jquery.waypoints.min.js"></script>
+<script src="/resources/js/script.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+</head>
+<body>
+<div id="bg"></div>
+
+<form onsubmit="return validateForm()">
+  <div class="form-field">
+    <input type="email" placeholder="Email / Username" id="username" required/>
+  </div>
+
+  <div class="form-field">
+    <input type="password" placeholder="Password" id="password" required/>
+  </div>
+
+  <div class="form-field">
+    <button class="btn">Log In</button>
+  </div>
+</form>
+
+<script>
+function validateForm() {
+ 
+  var username = document.getElementById("username").value;
+  var password = document.getElementById("password").value;
+
+  // Check if the username and password are correct
+  if (username == "amruta@123.com" && password == "123") {
+    window.location.href = "websiteWelcome.php";
+    return false; // Allow the form to be submitted
+  } else {
+    toastr.warning("Login failed. Please check your username and password.");
+    return false; // Prevent the form from being submitted
+  }
+}
+</script>
+</body>
+</html>
